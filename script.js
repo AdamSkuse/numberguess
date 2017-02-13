@@ -15,12 +15,14 @@ function changeRange(){
 
 function makeGuess(){
     var newGuess = parseInt(document.getElementById("guess").value);
+    var userFeedback = document.getElementById("userFeedback");
     if (newGuess === answer) {
-        console.log("Correct!");
+        userFeedback.innerHTML = "Correct!<br>If you wish to play again, simply go ahead";
+        generateAnswer();
     } else if (newGuess < answer) {
-        console.log("higher");
+        userFeedback.innerHTML = "Higher!";
     } else if (newGuess > answer) {
-        console.log("lower");
+        userFeedback.innerHTML = "Lower!";
     }
 }
 
