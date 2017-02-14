@@ -1,7 +1,7 @@
 var answerRange = 10;
 var answer = 1;
 var guessLog = [];
-
+var sessionLog = [];
 
 function generateAnswer(){
     answer = Math.floor(Math.random() * answerRange + 1);
@@ -26,6 +26,7 @@ function makeGuess(){
             userFeedback.innerHTML = "CORRECT!<br>It took you " + guessLog.length + " tries to guess the answer, which was " + answer + ".";
         }
         updateGuessLog();
+        updateSessionLog();
         generateAnswer();
         guessLog = [];
     } else if (newGuess < answer) {
@@ -48,6 +49,24 @@ function updateGuessLog(){
         ol.appendChild(li);
     });
 }
+
+function session(range, answer, guesses) {
+    this.range = range;
+    this.answer = answer;
+    this.guesses = guesses;
+}
+
+function updateSessionLog(){
+    sessionLog.push(new session(answerRange, answer, guessLog.length));
+    var ol = document.getElementById("sessionLog");
+    ol.innerHTML = "";
+    sessionLog.forEach(function(session) {
+        var li = document.createElement("li");
+        li.textContent = "1 - " + session.range + " " + session.answer + " " + session.guesses;
+        ol.appendChild(li);
+    });
+}
+
 
 
 
