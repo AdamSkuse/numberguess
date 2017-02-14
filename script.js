@@ -70,14 +70,14 @@ function updateGuessLog(){
 
 function updateSessionLog(){
     sessionLog.push(new session(answerRange, answer, guessLog.length));
-    var ol = document.getElementById("sessionLog");
-    ol.innerHTML = "";
-    sessionLog.forEach(function(session) {
-        var li = document.createElement("li");
-        li.textContent = "1 - " + session.range + " " + session.answer + " " + session.guesses;
-        ol.appendChild(li);
-    });
+    var newSessionLogRow = "<div class='sessioncell col-1-3'><p>1 - " + sessionLog[sessionLog.length -1].range + "</p></div><!-- --><div class='sessioncell col-1-3'><p>" + sessionLog[sessionLog.length -1].answer + "</p></div><!-- --><div class='sessioncell col-1-3'><p>" + sessionLog[sessionLog.length -1].guesses + "</p></div>";
+    var newSessionLogDiv = document.createElement("div");
+    newSessionLogDiv.class = "sessionrow";
+    newSessionLogDiv.innerHTML = newSessionLogRow;
+    document.getElementById("sessionlog").appendChild(newSessionLogDiv);
 }
+    
+
 
 
 

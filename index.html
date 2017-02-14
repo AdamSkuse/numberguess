@@ -4,38 +4,58 @@
     <meta charset="utf-8">
     <title>Number guessing game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
 </head>
 
 <body>
+    <section class="hero">
+        <h1>Guess the number!</h1>
+        <br>
+    </section>
 
-    <h1>Guess the number!</h1>
-    <br>
-    <div>
-        <h3>Choose a range</h3>
-        <select id="answerRangeInput">
-            <option value="10">1 - 10</option>
-            <option value="100">1 - 100</option>
-            <option value="1000">1 - 1000</option>
-        </select>
-    </div>
+    <section class="container row">
+        <div class="col-1-3">
+            <div class="gamescape">
+            <h3>Choose a range</h3>
+            <select id="answerRangeInput">
+                <option value="10">1 - 10</option>
+                <option value="100">1 - 100</option>
+                <option value="1000">1 - 1000</option>
+            </select>
+            <h3>Enter your guess</h3>
+            <input id="guess" type="number"></input><button id = "guessButton">Guess!</button>
+            </div>
+        </div><!--
+        --><div class="col-2-3">
+            <div class="userfeedback">
+                <p id="userFeedback"></p>
+            </div>
+        </div>
+    </section>
 
-    <div>
-        <h3>Enter your guess</h3>
-        <input id="guess" type="number"></input><button id = "guessButton">Guess!</button>
-    </div>
-    <div>
-        <p id="userFeedback"></p>
-    </div>
-    <div>
-        <h3>Game guesses</h3>
-        <ol id="guessLog">
-        </ol>
-    </div>
-    <div>
-        <h3>Session log</h3>
-    <ol id="sessionLog">
-    </ol>
-    </div>
+    <section class="container row">
+        <div class="col-1-2">
+            <h3>Game guesses</h3>
+            <ol id="guessLog">
+            </ol>
+        </div><!--
+        --><div class="col-1-2">
+            <h3>Session log</h3>
+                <div class="sessionlog" id="sessionlog">
+                 <div class="sessionrow sessionrow-header">
+                    <div class="sessioncell col-1-3">
+                        <p>Range</p>
+                    </div><!--
+                    --><div class="sessioncell col-1-3">
+                        <p>Answer</p>
+                    </div><!--
+                    --><div class="sessioncell col-1-3">
+                        <p>Guesses</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
     <script src="script.js"></script>
 
 </body>
