@@ -12,7 +12,7 @@
     <br>
     <div>
         <h3>Choose a range</h3>
-        <select id="answerRange" onchange="changeRange()">
+        <select id="answerRange">
             <option value="10">1 - 10</option>
             <option value="100">1 - 100</option>
             <option value="1000">1 - 1000</option>
@@ -21,7 +21,7 @@
 
     <div>
         <h3>Enter your guess</h3>
-        <input id="guess" type="number"></input><button onclick="makeGuess()">Guess!</button>
+        <input id="guess" type="number"></input><button id = "guessButton">Guess!</button>
     </div>
     <div>
         <p id="userFeedback"></p>

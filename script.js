@@ -3,6 +3,15 @@ var answer = 1;
 var guessLog = [];
 var sessionLog = [];
 
+function setupEventListeners(){
+    var answerRange = document.getElementById("answerRange");
+    answerRange.addEventListener("change", changeRange);
+    var guessButton= document.getElementById("guessButton");
+    guessButton.addEventListener("click", makeGuess);
+}
+
+setupEventListeners();
+
 function generateAnswer(){
     answer = Math.floor(Math.random() * answerRange + 1);
     console.log(answer);
@@ -66,6 +75,8 @@ function updateSessionLog(){
         ol.appendChild(li);
     });
 }
+
+
 
 
 
