@@ -19,10 +19,15 @@ function makeGuess(){
     var newGuess = parseInt(document.getElementById("guess").value);
     var userFeedback = document.getElementById("userFeedback");
     if (newGuess === answer) {
-        userFeedback.innerHTML = "Correct!<br>If you wish to play again, simply go ahead";
         guessLog.push(["CORRECT ANSWER!", newGuess]);
+        if (guessLog.length === 1) {
+            userFeedback.innerHTML = "HOLE IN ONE!<br>It took you just 1 try to guess the answer, which was " + answer + ".";        
+        } else {
+            userFeedback.innerHTML = "CORRECT!<br>It took you " + guessLog.length + " tries to guess the answer, which was " + answer + ".";
+        }
         updateGuessLog();
         generateAnswer();
+        guessLog = [];
     } else if (newGuess < answer) {
         userFeedback.innerHTML = "Higher!";
         guessLog.push(["Low", newGuess]);
