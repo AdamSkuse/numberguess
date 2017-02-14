@@ -1,5 +1,7 @@
 var answerRange = 10;
 var answer = 1;
+var guessLog = [];
+
 
 function generateAnswer(){
     answer = Math.floor(Math.random() * answerRange + 1);
@@ -18,12 +20,28 @@ function makeGuess(){
     var userFeedback = document.getElementById("userFeedback");
     if (newGuess === answer) {
         userFeedback.innerHTML = "Correct!<br>If you wish to play again, simply go ahead";
+        guessLog.push(["CORRECT ANSWER!", newGuess]);
+        updateGuessLog();
         generateAnswer();
     } else if (newGuess < answer) {
         userFeedback.innerHTML = "Higher!";
+        guessLog.push(["Low", newGuess]);
+        updateGuessLog();
     } else if (newGuess > answer) {
         userFeedback.innerHTML = "Lower!";
+        guessLog.push(["High", newGuess]);
+        updateGuessLog();
     }
+}
+
+function updateGuessLog(){
+    var ol = document.getElementById("guessLog");
+    ol.innerHTML="";
+    guessLog.forEach(function(guess) {
+        var li = document.createElement("li");
+        li.textContent = guess[0] + " (" + guess[1] + ")";
+        ol.appendChild(li);
+    });
 }
 
 
