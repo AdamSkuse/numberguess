@@ -3,14 +3,23 @@ var answer = 1;
 var guessLog = [];
 var sessionLog = [];
 
+// constructor for session objects that are stored in sessionLog
+function session(range, answer, guesses) {
+    this.range = range;
+    this.answer = answer;
+    this.guesses = guesses;
+}
+
+
 function setupEventListeners(){
-    var answerRange = document.getElementById("answerRange");
-    answerRange.addEventListener("change", changeRange);
+    var answerRangeInput = document.getElementById("answerRangeInput");
+    answerRangeInput.addEventListener("change", changeRange);
     var guessButton= document.getElementById("guessButton");
     guessButton.addEventListener("click", makeGuess);
 }
 
 setupEventListeners();
+
 
 function generateAnswer(){
     answer = Math.floor(Math.random() * answerRange + 1);
@@ -20,7 +29,7 @@ function generateAnswer(){
 generateAnswer();
 
 function changeRange(){
-    answerRange = parseInt(document.getElementById("answerRange").value);
+    answerRange = parseInt(document.getElementById("answerRangeInput").value);
     generateAnswer();
 }
 
@@ -57,12 +66,6 @@ function updateGuessLog(){
         li.textContent = guess[0] + " (" + guess[1] + ")";
         ol.appendChild(li);
     });
-}
-
-function session(range, answer, guesses) {
-    this.range = range;
-    this.answer = answer;
-    this.guesses = guesses;
 }
 
 function updateSessionLog(){
