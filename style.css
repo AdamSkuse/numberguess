@@ -112,3 +112,11 @@ body {
     display: inline-block;
 }
 
+.userfeedback {
+    transition: all 0.5s;
+}
+
+.glow {
+    text-shadow: 0 0 5px #fff;
+    transform:scale(1.1);
+}

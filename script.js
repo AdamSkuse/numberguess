@@ -47,6 +47,7 @@ function makeGuess(){
         updateSessionLog();
         generateAnswer();
         guessLog = [];
+        userFeedback.focus();
     } else if (newGuess < answer) {
         userFeedback.innerHTML = "Higher!";
         guessLog.push(["Low", newGuess]);
@@ -56,6 +57,12 @@ function makeGuess(){
         guessLog.push(["High", newGuess]);
         updateGuessLog();
     }
+    var userFeedbackDiv = document.getElementById("userFeedbackDiv");
+    userFeedbackDiv.classList.add("glow");
+    setTimeout(function(){
+        userFeedbackDiv.classList.remove("glow");
+    }, 700);
+    
 }
 
 function updateGuessLog(){
