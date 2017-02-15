@@ -1,7 +1,12 @@
 NUMBER GUESSING GAME
 Using HTML5 and vanilla JS
 
+Viewable at:
+https://muxy.neocities.org/projects/numberguess/
+
 Attempt to recreate the game at http://keithmon.com/projects/guess-the-number/
+
+
 
 v1 requirements
 - It should have a way for the user to select the number range
